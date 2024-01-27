@@ -1,0 +1,28 @@
+﻿@using ServiceLayer.Services.Interfaces
+@inject IIdentityServices _identityService;
+@{
+    var userinfo = _identityService.GetUserPanelSideBar(User.Identity.Name);
+}
+
+<aside class="col-md-4 col-lg-3">
+    <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="tab-dashboard-link" data-toggle="tab" href="#tab-dashboard" role="tab" aria-controls="tab-dashboard" aria-selected="true">داشبورد</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-orders-link" data-toggle="tab" href="#tab-orders" role="tab" aria-controls="tab-orders" aria-selected="false">سفارشات</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-address-link" data-toggle="tab" href="#tab-address" role="tab" aria-controls="tab-address" aria-selected="false">آدرس</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab-account-link" data-toggle="tab" href="#tab-account" role="tab" aria-controls="tab-account" aria-selected="false">
+                جزئیات حساب
+                کاربری
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="identity" asp-action="logout">خروج از حساب کاربری</a>
+        </li>
+    </ul>
+</aside>

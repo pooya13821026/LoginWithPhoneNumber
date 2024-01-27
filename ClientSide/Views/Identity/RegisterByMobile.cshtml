@@ -1,0 +1,92 @@
+﻿@using ServiceLayer.ViewModels.IdentityViewModels
+@model RegsisterViewModel
+@{
+    ViewData["Title"] = "ثبت نام";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>خانه</a></li>
+                <li class="breadcrumb-item active" aria-current="page">ثبت نام</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+    <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('templates/static/images/backgrounds/login-bg.jpg')">
+        <div class="container">
+            <div class="form-box">
+                <div class="form-tab">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active">ثبت نام</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show">
+                            <form asp-action="RegisterByMobile" method="post">
+                                <div class="form-group">
+                                    <label>نام و نام خانوادگی  *</label>
+                                    <input asp-for="DisplayName" type="text" class="form-control"required="">
+                                    <span asp-validation-for="DisplayName" class="text-danger"></span>
+                                </div><!-- End .form-group -->
+
+                                <div class="form-group">
+                                    <label>شماره تلفن *</label>
+                                    <input asp-for="PhoneNumber" type="number" class="form-control" required="">
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div><!-- End .form-group -->
+
+                                <div class="form-group">
+                                    <label>رمز عبور *</label>
+                                    <input asp-for="Password" type="Password" class="form-control"required="">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div><!-- End .form-group -->
+
+                                <div class="form-group">
+                                    <label>تکرار رمز عبور *</label>
+                                    <input asp-for="RePassword" type="Password" class="form-control" required="">
+                                    <span asp-validation-for="RePassword" class="text-danger"></span>
+                                </div><!-- End .form-group -->
+
+                                <div class="form-footer">
+                                    <button type="submit" class="btn btn-outline-primary-2">
+                                        <span>ثبت نام</span>
+                                        <i class="icon-long-arrow-left"></i>
+                                    </button>
+
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="register-policy-2" required="">
+                                        <label class="custom-control-label" for="register-policy-2">من با <a href="#">قوانین و مقررات</a> موافقم *</label>
+                                    </div><!-- End .custom-checkbox -->
+                                </div><!-- End .form-footer -->
+                            </form>
+                            @* <div class="form-choice">
+                                <p class="text-center">یا ورود با </p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="#" class="btn btn-login btn-g">
+                                            <i class="icon-google"></i>
+                                            حساب کاربری گوگل
+                                        </a>
+                                    </div><!-- End .col-6 -->
+                                    <div class="col-sm-6">
+                                        <a href="#" class="btn btn-login  btn-f">
+                                            <i class="icon-facebook-f"></i>
+                                            حساب کاربری فیسبوک
+                                        </a>
+                                    </div><!-- End .col-6 -->
+                                </div><!-- End .row -->
+                            </div><!-- End .form-choice --> *@
+                        </div><!-- .End .tab-pane -->
+                    </div><!-- End .tab-content -->
+                </div><!-- End .form-tab -->
+            </div><!-- End .form-box -->
+        </div><!-- End .container -->
+    </div><!-- End .login-page section-bg -->
+</main>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
